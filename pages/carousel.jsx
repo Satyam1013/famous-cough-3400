@@ -12,8 +12,8 @@ const settings = {
   fade: true,
   infinite: true,
   autoplay: true,
-  speed: 500,
-  autoplaySpeed: 5000,
+  speed: 300,
+  autoplaySpeed: 3000,
   slidesToShow: 1,
   slidesToScroll: 1,
 };
@@ -34,7 +34,7 @@ export default function Carousel() {
     'https://images-static.nykaa.com/uploads/9ef6a6c2-9107-487c-8a4b-e886becea619.jpg?tr=w-1200,cm-pad_resize',
     'https://images-static.nykaa.com/uploads/4cfa562a-2f35-4aa4-8df3-dab8650d23a2.jpg?tr=w-1200,cm-pad_resize',
     'https://images-static.nykaa.com/uploads/4e0cc868-6e20-4dd9-9200-3e5dfa660a88.jpg?tr=w-1200,cm-pad_resize',
-    'https://images-static.nykaa.com/uploads/9ef6a6c2-9107-487c-8a4b-e886becea619.jpg?tr=w-1200,cm-pad_resize',
+    'https://images-static.nykaa.com/uploads/3efe954d-bbb7-4c6e-99cc-992037b42b06.jpg?tr=w-1200,cm-pad_resize',
     'https://images-static.nykaa.com/uploads/a294f8d2-8bb6-4912-9ac9-896cfa2685dc.jpg?tr=w-1200,cm-pad_resize'
 
   ];
@@ -42,10 +42,12 @@ export default function Carousel() {
   return (
     <Box
       position={'relative'}
-      height={'400px'}
-      width={'full'}
+      height={{base:'250px',lg:'400px'}}
+      m='auto'
+      width={'95%'}
       overflow={'hidden'}
       borderRadius='10px'
+    
       >
       <Text mt='20px' m='10px' fontWeight={'bold'} fontSize={{lg:'24px'}}>Best in Beauty</Text>
       {/* CSS files for react-slick */}
@@ -63,8 +65,9 @@ export default function Carousel() {
       {/* Left Icon */}
       <IconButton
         aria-label="left-arrow"
-        colorScheme="messenger"
+        colorScheme="gray"
         borderRadius="full"
+        display={{base:'none',md:'grid'}}
         position="absolute"
         left={side}
         top={top}
@@ -76,7 +79,8 @@ export default function Carousel() {
       {/* Right Icon */}
       <IconButton
         aria-label="right-arrow"
-        colorScheme="messenger"
+        display={{base:'none',md:'grid'}}
+        colorScheme="gray"
         borderRadius="full"
         position="absolute"
         right={side}
@@ -91,7 +95,7 @@ export default function Carousel() {
         {cards.map((url, index) => (
           <Box
             key={index}
-            height={'sm'}
+            height={{base:'170px',lg:'sm'}}
             position="relative"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
