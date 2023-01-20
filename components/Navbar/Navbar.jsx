@@ -18,6 +18,15 @@ import {
   Input,
   Heading,
   Grid,
+  ModalOverlay,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
+  FormControl,
+  FormLabel,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -28,19 +37,32 @@ import {
 } from "@chakra-ui/icons";
 import Dropdown from "./Dropdown";
 import Promo from "./Promo";
+import { useState } from "react";
 // import Image from "next/image";
 
 export default function Navbar() {
-  const { isOpen, onToggle } = useDisclosure();
+  const OverlayTwo = () => (
+    <ModalOverlay
+       
+      backdropFilter='blur(10px) hue-rotate(90deg)'
+    />
+  )
+  const { onToggle } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [overlay, setOverlay] = useState(<OverlayTwo />)
+ 
 
   return (
     <Box>
       <Promo />
+      
+<Box position={'fixed'} top={{base:'1px',lg:"30px"}} width='100%' bgColor={"white"} zIndex='1'>
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
         m="auto"
-        minH={"60px"}
+        mt={{base:'1px',lg:'0.5rem'}}
+        minH={"50px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderStyle={"solid"}
@@ -67,7 +89,7 @@ export default function Navbar() {
           justify={{ base: "center", md: "start" }}
           alignItems="center"
         >
-          <Image width="50" height={"50"} src="images.png" alt="logo" />
+          <Image width="50" height={"50"} src="imgg.png" alt="logo" />
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
@@ -104,10 +126,43 @@ export default function Navbar() {
               bg: "pink.300",
             }}
             mr={{ lg: "50px" }}
+            onClick={() => {
+          setOverlay(<OverlayTwo />)
+          onOpen()
+        }}
           >
             Sign In
           </Button>
+          <Modal isCentered isOpen={isOpen} onClose={onClose}>
+        {overlay}
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Create your account</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6}>
+          <FormControl >
+              <FormLabel>Full Name</FormLabel>
+              <Input placeholder='Enter your name' />
+            </FormControl>
+            <FormControl mt={4}>
+              <FormLabel>Email</FormLabel>
+              <Input placeholder='Enter your email' />
+            </FormControl>
 
+            <FormControl mt={4}>
+              <FormLabel>Password</FormLabel>
+              <Input placeholder='Enter your password' />
+            </FormControl>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button bgColor='#ed4a4e' mr={'15rem'} color='white'>
+              Login
+            </Button>
+            <Button onClick={onClose}>Cancel</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
           <Image
             width="20px"
             height={"20px"}
@@ -116,11 +171,14 @@ export default function Navbar() {
           />
         </Stack>
       </Flex>
-      <hr />
+      </Box>
+     
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
       </Collapse>
+      <Box mt={{base:'1px',lg:'6.8rem'}}>
       <Dropdown />
+      </Box>
     </Box>
   );
 }
@@ -315,7 +373,7 @@ const NAV_ITEMS = [
       },
       {
         img: "https://images-static.naikaa.com/media/wysiwyg/2021/Buying-Guide-Mega-menu-new.jpg",
-        label: "BEAUTY BUYING GUIDES",
+        label: "BEAUTY GUIDES",
         subLabel: "Tips To Explore While You Shop",
 
         href: "#",
@@ -521,6 +579,7 @@ const MobileNavItem = ({ label, children, href }) => {
           {children &&
             children.map((child) => (
               <Link key={child.label} py={2} href={child.href}>
+                <Image width="100px" src={child.img} alt="" />
                 {child.label}
               </Link>
             ))}

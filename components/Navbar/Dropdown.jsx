@@ -25,7 +25,7 @@ export default function Dropdown() {
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
         m="auto"
-        minH={"60px"}
+        minH={"50px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
         boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"

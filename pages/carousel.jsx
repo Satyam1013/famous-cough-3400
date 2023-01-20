@@ -35,8 +35,8 @@ export default function Carousel() {
     'https://images-static.nykaa.com/uploads/4cfa562a-2f35-4aa4-8df3-dab8650d23a2.jpg?tr=w-1200,cm-pad_resize',
     'https://images-static.nykaa.com/uploads/4e0cc868-6e20-4dd9-9200-3e5dfa660a88.jpg?tr=w-1200,cm-pad_resize',
     'https://images-static.nykaa.com/uploads/3efe954d-bbb7-4c6e-99cc-992037b42b06.jpg?tr=w-1200,cm-pad_resize',
-    'https://images-static.nykaa.com/uploads/a294f8d2-8bb6-4912-9ac9-896cfa2685dc.jpg?tr=w-1200,cm-pad_resize'
-
+    'https://images-static.nykaa.com/uploads/a294f8d2-8bb6-4912-9ac9-896cfa2685dc.jpg?tr=w-1200,cm-pad_resize',
+    'https://images-static.nykaa.com/uploads/087be75e-8b3d-40f0-bd0a-bef5bfcc8dd3.jpg?tr=w-1200,cm-pad_resize'
   ];
 
   return (
@@ -47,9 +47,9 @@ export default function Carousel() {
       width={'95%'}
       overflow={'hidden'}
       borderRadius='10px'
-    
+      mt={{base:'60px',lg:'20px'}}
       >
-      <Text mt='20px' m='10px' fontWeight={'bold'} fontSize={{lg:'24px'}}>Best in Beauty</Text>
+      <Text mt='0px' m='10px' fontWeight={'bold'} fontSize={{lg:'24px'}}>Best in Beauty</Text>
       {/* CSS files for react-slick */}
       <link
         rel="stylesheet"
@@ -72,7 +72,7 @@ export default function Carousel() {
         left={side}
         top={top}
         transform={'translate(0%, -50%)'}
-        zIndex={2}
+        zIndex={1}
         onClick={() => slider?.slickPrev()}>
         <BiLeftArrowAlt />
       </IconButton>
@@ -86,7 +86,7 @@ export default function Carousel() {
         right={side}
         top={top}
         transform={'translate(0%, -50%)'}
-        zIndex={2}
+        zIndex={1}
         onClick={() => slider?.slickNext()}>
         <BiRightArrowAlt />
       </IconButton>
