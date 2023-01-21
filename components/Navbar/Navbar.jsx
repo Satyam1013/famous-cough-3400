@@ -16,17 +16,6 @@ import {
   useBreakpointValue,
   useDisclosure,
   Input,
-  Heading,
-  Grid,
-  ModalOverlay,
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  ModalBody,
-  ModalFooter,
-  FormControl,
-  FormLabel,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -35,149 +24,165 @@ import {
   ChevronRightIcon,
   SearchIcon,
 } from "@chakra-ui/icons";
+import { useAuth0 } from "@auth0/auth0-react";
 import Dropdown from "./Dropdown";
 import Promo from "./Promo";
-import { useState } from "react";
-// import Image from "next/image";
 
 export default function Navbar() {
-  const OverlayTwo = () => (
-    <ModalOverlay
-       
-      backdropFilter='blur(10px) hue-rotate(90deg)'
-    />
-  )
-  const { onToggle } = useDisclosure();
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const [overlay, setOverlay] = useState(<OverlayTwo />)
- 
+  const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
+  const { isOpen, onToggle } = useDisclosure();
+
+  // console.log(user);
 
   return (
     <Box>
       <Promo />
-      
-<Box position={'fixed'} top={{base:'1px',lg:"30px"}} width='100%' bgColor={"white"} zIndex='1'>
-      <Flex
-        bg={useColorModeValue("white", "gray.800")}
-        color={useColorModeValue("gray.600", "white")}
-        m="auto"
-        mt={{base:'1px',lg:'0.5rem'}}
-        minH={"50px"}
-        py={{ base: 2 }}
-        px={{ base: 4 }}
-        borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.900")}
-        align={"center"}
-        width="80%"
+
+      <Box
+        position={"fixed"}
+        top={{ base: "1px", lg: "30px" }}
+        width="100%"
+        bgColor={"white"}
+        zIndex="2"
       >
         <Flex
-          flex={{ base: 1, md: "auto" }}
-          ml={{ base: -2 }}
-          display={{ base: "flex", md: "none" }}
-        >
-          <IconButton
-            onClick={onToggle}
-            icon={
-              isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
-            }
-            variant={"ghost"}
-            aria-label={"Toggle Navigation"}
-          />
-        </Flex>
-        <Flex
-          flex={{ base: 1 }}
-          justify={{ base: "center", md: "start" }}
-          alignItems="center"
-        >
-          <Image width="50" height={"50"} src="imgg.png" alt="logo" />
-
-          <Flex display={{ base: "none", md: "flex" }} ml={10}>
-            <DesktopNav />
-          </Flex>
-        </Flex>
-
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={"flex-end"}
-          direction={"row"}
-          spacing={6}
-          alignItems="center"
+          bg={useColorModeValue("white", "gray.800")}
+          color={useColorModeValue("gray.600", "white")}
+          m="auto"
+          mt={{ base: "1px", lg: "0.5rem" }}
+          minH={"50px"}
+          py={{ base: 2 }}
+          px={{ base: 4 }}
+          borderStyle={"solid"}
+          borderColor={useColorModeValue("gray.200", "gray.900")}
+          align={"center"}
+          width="80%"
         >
           <Flex
-            bgColor={"#f4f4f4"}
-            p="0px 10px"
-            borderRadius={"5px"}
-            display={{ base: "none", md: "inline-flex" }}
-            alignItems="center"
-            width={"250px"}
+            flex={{ base: 1, md: "auto" }}
+            ml={{ base: -2 }}
+            display={{ base: "flex", md: "none" }}
           >
-            <SearchIcon />
-            <Input border={"transparent"} placeholder="Search on Nikka" />
+            <IconButton
+              onClick={onToggle}
+              icon={
+                isOpen ? (
+                  <CloseIcon w={3} h={3} />
+                ) : (
+                  <HamburgerIcon w={5} h={5} />
+                )
+              }
+              variant={"ghost"}
+              aria-label={"Toggle Navigation"}
+            />
+          </Flex>
+          <Flex
+            flex={{ base: 1 }}
+            justify={{ base: "center", md: "start" }}
+            alignItems="center"
+          >
+            <Image width="50" height={"50"} src="imgg.png" alt="logo" />
+
+            <Flex display={{ base: "none", md: "flex" }} ml={10}>
+              <DesktopNav />
+            </Flex>
           </Flex>
 
-          <Button
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"#ed4a4e"}
-            href={"#"}
-            _hover={{
-              bg: "pink.300",
-            }}
-            mr={{ lg: "50px" }}
-            onClick={() => {
-          setOverlay(<OverlayTwo />)
-          onOpen()
-        }}
+          <Stack
+            flex={{ base: 1, md: 0 }}
+            justify={"flex-end"}
+            direction={"row"}
+            spacing={6}
+            alignItems="center"
           >
-            Sign In
-          </Button>
-          <Modal isCentered isOpen={isOpen} onClose={onClose}>
-        {overlay}
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Create your account</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody pb={6}>
-          <FormControl >
-              <FormLabel>Full Name</FormLabel>
-              <Input placeholder='Enter your name' />
-            </FormControl>
-            <FormControl mt={4}>
-              <FormLabel>Email</FormLabel>
-              <Input placeholder='Enter your email' />
-            </FormControl>
+            <Flex
+              bgColor={"#f4f4f4"}
+              p="0px 10px"
+              borderRadius={"5px"}
+              display={{ base: "none", lg: "inline-flex" }}
+              alignItems="center"
+              width={"250px"}
+            >
+              <SearchIcon />
+              <Input border={"transparent"} placeholder="Search on Nikka" />
+            </Flex>
+            {isAuthenticated && (
+              <>
+                {" "}
+                {
+                  <Flex alignItems={"center"} gap="5px">
+                    <Image
+                      width={{ base: "20px", lg: "30px" }}
+                      borderRadius={"50%"}
+                      src={user.picture}
+                      alt=""
+                    />
+                    <Text
+                      display={{ base: "none", lg: "inline-flex" }}
+                      fontWeight={"600"}
+                    >
+                      {user.nickname}
+                    </Text>
+                  </Flex>
+                }{" "}
+              </>
+            )}
+            {isAuthenticated ? (
+              <Button
+                width={{ base: "50px", lg: "80px" }}
+                height={{ base: "18px", md: "30px" }}
+                display="inline-flex"
+                fontSize={{ base: "10px", md: "sm" }}
+                fontWeight={600}
+                color={"white"}
+                bg={"#ed4a4e"}
+                _hover={{
+                  bg: "pink.300",
+                }}
+                mr={{ lg: "50px" }}
+                onClick={() =>
+                  logout({ logoutParams: { returnTo: window.location.origin } })
+                }
+              >
+                Log Out
+              </Button>
+            ) : (
+              <Button
+                width={{ base: "50px", lg: "80px" }}
+                height={{ base: "18px", md: "30px" }}
+                display="inline-flex"
+                fontSize={{ base: "10px", md: "sm" }}
+                fontWeight={600}
+                color={"white"}
+                bg={"#ed4a4e"}
+                _hover={{
+                  bg: "pink.300",
+                }}
+                mr={{ lg: "50px" }}
+                onClick={() => loginWithRedirect()}
+              >
+                Sign In
+              </Button>
+            )}
 
-            <FormControl mt={4}>
-              <FormLabel>Password</FormLabel>
-              <Input placeholder='Enter your password' />
-            </FormControl>
-          </ModalBody>
-
-          <ModalFooter>
-            <Button bgColor='#ed4a4e' mr={'15rem'} color='white'>
-              Login
-            </Button>
-            <Button onClick={onClose}>Cancel</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-          <Image
-            width="20px"
-            height={"20px"}
-            src="https://cdn-icons-png.flaticon.com/512/736/736943.png"
-            alt="bag"
-          />
-        </Stack>
-      </Flex>
+            <Image
+            cursor={'pointer'}
+            _hover={{p:'1px'}}
+              width="20px"
+              height={"20px"}
+              src="https://cdn-icons-png.flaticon.com/512/736/736943.png"
+              alt="bag"
+            />
+          </Stack>
+        </Flex>
       </Box>
-     
+
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
       </Collapse>
-      <Box mt={{base:'1px',lg:'6.8rem'}}>
-      <Dropdown />
+      <Box mt={{ base: "1px", lg: "6.8rem" }}>
+        <Dropdown />
       </Box>
     </Box>
   );

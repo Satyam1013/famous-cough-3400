@@ -123,7 +123,7 @@ export default function Footer() {
         >
           <Stack spacing={6}>
             <Box>
-              <Image w="65px" src="./imgg.png" alt="" />
+              <Image w={{base:"35px",lg:'65px'}} src="./imgg.png" alt="" />
             </Box>
             <Stack align={"flex-start"} fontSize={{base:'12px', lg:'16px'}}>
               <Link  _hover={{ color: "#fc2779" }} href={"#"}>

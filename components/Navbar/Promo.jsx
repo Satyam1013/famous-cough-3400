@@ -6,7 +6,7 @@ const Promo = () => {
     <Flex
       position={"fixed"}
       top="0px"
-      zIndex={'2'}
+      zIndex={'3'}
       width={'100%'}
       height={"40px"}
       bgColor={"#fe93bc"}

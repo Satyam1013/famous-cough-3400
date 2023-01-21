@@ -17,7 +17,6 @@ import { ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
 // import Image from "next/image";
 
 export default function Dropdown() {
-  const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Box>
@@ -45,9 +44,7 @@ export default function Dropdown() {
         </Flex>
       </Flex>
       <hr />
-      <Collapse in={isOpen} animateOpacity>
-        <MobileNav />
-      </Collapse>
+     
     </Box>
   );
 }
@@ -1026,7 +1023,6 @@ const NAV_ITEMS = [
 
 const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (

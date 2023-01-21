@@ -30,6 +30,8 @@ export default function Carousel() {
 
   // These are the images used in the slide
   const cards = [
+    'https://images-static.nykaa.com/uploads/3da148ac-ca97-4f2c-91a7-670f5dfbbef7.gif?tr=w-1200,cm-pad_resize',
+    'https://images-static.nykaa.com/uploads/9262075e-9623-4fc0-824d-b410754c6a3f.jpg?tr=w-1200,cm-pad_resize',
     'https://images-static.nykaa.com/uploads/04d0c1d0-3bd5-49cd-8d38-655a9f3c003b.jpg?tr=w-1200,cm-pad_resize',
     'https://images-static.nykaa.com/uploads/9ef6a6c2-9107-487c-8a4b-e886becea619.jpg?tr=w-1200,cm-pad_resize',
     'https://images-static.nykaa.com/uploads/4cfa562a-2f35-4aa4-8df3-dab8650d23a2.jpg?tr=w-1200,cm-pad_resize',

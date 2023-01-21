@@ -1,51 +1,61 @@
 import { Box, Flex, Grid, Image, Text } from "@chakra-ui/react";
-import React from "react";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
 import styles from "./homepage.module.css";
 const top_brands = [
   {
     img: "https://images-static.nykaa.com/uploads/977c5e94-1721-482d-9087-51bae5366ee0.png?tr=w-400,cm-pad_resize",
     dis: "Up To 25% Off",
     desc: "#GetThatGlow With Illuminating Primer Drops",
+    add:'/loreal'
   },
   {
     img: "https://images-static.nykaa.com/uploads/87210c5c-f9ec-4fdb-8589-c7ba9e49fc5a.jpg?tr=w-400,cm-pad_resize",
     dis: "Up To 50% Off + Free Serum",
     desc: "Worth ₹799 On ₹999",
+    add:'/loreal'
   },
   {
     img: "https://images-static.nykaa.com/uploads/05d0a5aa-79a8-4a8e-bea3-c1e2b3dc06c0.jpg?tr=w-400,cm-pad_resize",
     dis: "Up To 40% Off",
     desc: "New Fit Me Fresh Tint with Vitamin C",
+    add:'/loreal'
   },
   {
     img: "https://images-static.nykaa.com/uploads/98d95b38-b55a-4313-b970-7db21626ab56.jpg?tr=w-400,cm-pad_resize",
     dis: "Up To 40% Off",
     desc: "72HR Hydrated Hair with Hyaluronic Acid",
+    add:'/loreal'
   },
   {
     img: "https://images-static.nykaa.com/uploads/940abd44-9a9c-456e-b2dd-ed3fd8113a5c.jpg?tr=w-400,cm-pad_resize",
     dis: "Up To 30% Off",
     desc: "Skin specialist face serums",
+    add:'/loreal'
   },
   {
     img: "https://images-static.nykaa.com/uploads/f78980bd-8cbe-4346-aece-c759cc904528.jpg?tr=w-400,cm-pad_resize",
     dis: "Up To 30% Off + Pick Your Compact at ₹799",
     desc: "Rich, Soft and Smooth matte lips all day long!",
+    add:'/loreal'
   },
   {
     img: "https://images-static.nykaa.com/uploads/dcd0793c-d987-4ad9-bdd9-8427f1efece7.jpg?tr=w-400,cm-pad_resize",
     dis: "Offers you can't resist",
     desc: "On your favourite luxe brands!",
+    add:'/loreal'
   },
   {
     img: "https://images-static.nykaa.com/uploads/4450a9f1-a943-4968-91a1-f5b3e455f1ad.jpg?tr=w-400,cm-pad_resizee",
     dis: "50% Off on GloWish Franchise +",
     desc: "2 Complimentary Gifts on ₹2500",
+    add:'/loreal'
   },
   {
     img: "https://images-static.nykaa.com/uploads/46ba9dc1-b6da-4787-9c9e-b49cfae73289.jpg?tr=w-400,cm-pad_resize",
     dis: "Exciting Holiday Kits",
     desc: "Starting at ₹2300",
+    add:'/loreal'
   },
 ];
 const only_at_nykaa = [
@@ -286,6 +296,19 @@ const skin = [
   
 ];
 const Homepage = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+};
+
+useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
+    };
+}, []);
   return (
     <>
       <Flex width="95%" m={"auto"} justifyContent="space-between">
@@ -336,7 +359,10 @@ const Homepage = () => {
             border="1px solid gray"
             key={el.dis}
           >
-            <Image w="100%" src={el.img} alt="products" />
+          <Link href={el.add}>
+          <Image w="100%" src={el.img} alt="products" />
+          </Link>
+            
             <Text
               ml="1rem"
               mt="10px"
@@ -913,6 +939,24 @@ const Homepage = () => {
       
       
 <Image width={'95%'} m='auto' mt={{base:'2rem', lg:'6rem'}} src='https://images-static.nykaa.com/uploads/49e43a50-37b5-405a-be2d-ab90055115ec.jpg?tr=w-1200,cm-pad_resize' alt=''/>
+
+{scrollPosition > 500 && (<Link href='/#top'>
+          
+            <Box position='fixed'
+             borderRadius={'50%'}
+                bottom='20px'
+                right={['1px', '14px']}
+                zIndex={1}
+                bgColor='#ececec'
+                boxShadow= 'rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px'
+            >
+                <Image p={'10px'} borderRadius={'50%'} src='https://thumbs.dreamstime.com/z/gray-arrow-up-icon-isolated-background-modern-simple-flat-upload-sign-business-internet-concep-concept-trendy-minimal-vector-go-122653042.jpg'
+                    w='50px'
+                    h='50px'
+                    alt=''
+                />
+            </Box>
+        </Link>)}
     </>
   );
 };
