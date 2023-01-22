@@ -1,0 +1,71 @@
+ .bd_best {
+    height: calc(200px + 3rem);
+    padding: 0.5rem 0;
+    overflow: hidden;
+    position: relative;
+	width: 95%;
+	margin: auto;
+	border-radius: 10px;
+  }
+
+  .bd_best_list {
+    align-items: stretch;
+    animation-duration: 50s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    display: flex;
+    left: 0;
+    position: absolute;
+    top: 1rem;
+    -webkit-animation-name: bdBestCarousel;
+    animation-name: bdBestCarousel;
+  }
+  
+  .bd_best_item {
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-right: 16px;
+    transition-duration: 85ms;
+    transition-property: box-shadow,transform;
+
+  }
+
+  .bd_best_item:hover {
+    box-shadow: 0 1em 1em rgba(0,0,0,.1);
+    transform: translateY(-.1em);
+  }
+  .bd_best_list:hover {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+
+  @keyframes bdBestCarousel{
+  100%{
+       transform: translateX(calc(-155% + 20px)); 
+  }
+} 
+
+.footer {
+  padding: 0 0 0 !important;
+}
+
+@media (min-width: 3700px) {
+
+.bd_best {
+	min-height: 400px;
+  }
+  
+.bd_best_item {
+	width: 200px;
+	height: 100px;
+		}	
+.bd_best_list {
+	animation-duration: 80s;
+		}
+.kl_img{
+	width: 200px;
+}
+
+}
+    
+ 
