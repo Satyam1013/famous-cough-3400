@@ -3,7 +3,7 @@ import axios from "axios";
 import React from "react";
 
 export async function getStaticProps() {
-  const res = await axios.get("http://localhost:3001/loreal");
+  const res = await axios.get("http://localhost:3001/lakme");
   const posts = res.data;
 
   return {
@@ -12,10 +12,14 @@ export async function getStaticProps() {
     },
   };
 }
+export default function Lakme({ posts }) {
+  const handleCart = (el) => {
+    localStorage.setItem("cart", JSON.stringify({ ...el }));
+  };
 
-export default function Loreal({ posts }) {
   return (
     <Box m="auto" bgColor={"#f3f3f3"}>
+      {/* <cart handleCart={handleCart}/> */}
       <Text mt="30px" fontSize={"30px"} fontWeight="600" textAlign={"center"}>
         All Products
       </Text>
@@ -37,8 +41,6 @@ export default function Loreal({ posts }) {
             width="300px"
             justifyContent={"center"}
           >
-            <cart />
-
             <Image m="auto" src={el.img} alt="" />
             <Text
               m="auto"
@@ -58,6 +60,9 @@ export default function Loreal({ posts }) {
               <Text fontWeight="bold">{el.disc_price}</Text>
               <Text color="green.400">{el.disc_rate}</Text>
             </Flex>
+            <Text m="auto" color={"#ed4a4e"}>
+              Get Free Product
+            </Text>
             <Text m="auto">{el.rating}</Text>
             <Button
               w="300px"
@@ -65,6 +70,7 @@ export default function Loreal({ posts }) {
               borderRadius={"0"}
               color="white"
               bgColor="#ed4a4e"
+              onClick={() => handleCart(el)}
             >
               Add to Bag
             </Button>

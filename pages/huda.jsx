@@ -3,7 +3,7 @@ import axios from "axios";
 import React from "react";
 
 export async function getStaticProps() {
-  const res = await axios.get("http://localhost:3001/loreal");
+  const res = await axios.get("http://localhost:3001/huda");
   const posts = res.data;
 
   return {
@@ -13,7 +13,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Loreal({ posts }) {
+export default function Huda({ posts }) {
   return (
     <Box m="auto" bgColor={"#f3f3f3"}>
       <Text mt="30px" fontSize={"30px"} fontWeight="600" textAlign={"center"}>
@@ -37,8 +37,6 @@ export default function Loreal({ posts }) {
             width="300px"
             justifyContent={"center"}
           >
-            <cart />
-
             <Image m="auto" src={el.img} alt="" />
             <Text
               m="auto"
@@ -52,13 +50,13 @@ export default function Loreal({ posts }) {
             </Text>
             <Flex m="auto" gap="5px">
               <Text>MRP: </Text>
-              <Text textDecoration={el.disc_price ? "line-through" : "none"}>
-                {el.original_price}
-              </Text>
               <Text fontWeight="bold">{el.disc_price}</Text>
               <Text color="green.400">{el.disc_rate}</Text>
             </Flex>
             <Text m="auto">{el.rating}</Text>
+            <Text m="auto" color="#ed4a4e">
+              Enjoy Free Gift
+            </Text>
             <Button
               w="300px"
               mt="20px"

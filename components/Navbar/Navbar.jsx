@@ -7,7 +7,6 @@ import {
   Stack,
   Collapse,
   Icon,
-  Link,
   Image,
   Popover,
   PopoverTrigger,
@@ -16,6 +15,7 @@ import {
   useBreakpointValue,
   useDisclosure,
   Input,
+  Link,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -25,8 +25,8 @@ import {
   SearchIcon,
 } from "@chakra-ui/icons";
 import { useAuth0 } from "@auth0/auth0-react";
-import Dropdown from "./Dropdown";
 import Promo from "./Promo";
+import Dropdown from "./Dropdown";
 
 export default function Navbar() {
   const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
@@ -82,8 +82,9 @@ export default function Navbar() {
             justify={{ base: "center", md: "start" }}
             alignItems="center"
           >
+           <Link href={'/homepage'}>
             <Image width="50" height={"50"} src="imgg.png" alt="logo" />
-
+</Link>
             <Flex display={{ base: "none", md: "flex" }} ml={10}>
               <DesktopNav />
             </Flex>
@@ -111,7 +112,7 @@ export default function Navbar() {
               <>
                 {" "}
                 {
-                  <Flex alignItems={"center"} gap="5px">
+                  <Flex alignItems={"center"} gap="5px" display={{ base: "none", lg: "inline-flex" }}>
                     <Image
                       width={{ base: "20px", lg: "30px" }}
                       borderRadius={"50%"}
@@ -119,7 +120,7 @@ export default function Navbar() {
                       alt=""
                     />
                     <Text
-                      display={{ base: "none", lg: "inline-flex" }}
+                      
                       fontWeight={"600"}
                     >
                       {user.nickname}
@@ -130,10 +131,10 @@ export default function Navbar() {
             )}
             {isAuthenticated ? (
               <Button
-                width={{ base: "50px", lg: "80px" }}
-                height={{ base: "18px", md: "30px" }}
+                width={{ base: "50px", sm:'60px',md:'70px', lg: "80px" }}
+                height={{ base: "18px", sm:'20px', md: "30px" }}
                 display="inline-flex"
-                fontSize={{ base: "10px", md: "sm" }}
+                fontSize={{ base: "10px", sm:'11px', md: "12px", lg:'sm' }}
                 fontWeight={600}
                 color={"white"}
                 bg={"#ed4a4e"}
@@ -149,10 +150,10 @@ export default function Navbar() {
               </Button>
             ) : (
               <Button
-                width={{ base: "50px", lg: "80px" }}
-                height={{ base: "18px", md: "30px" }}
+                width={{ base: "50px", sm:'60px',md:'70px', lg: "80px" }}
+                height={{ base: "18px", sm:'20px', md: "30px" }}
                 display="inline-flex"
-                fontSize={{ base: "10px", md: "sm" }}
+                fontSize={{ base: "10px", sm:'11px', md: "12px", lg:'sm' }}
                 fontWeight={600}
                 color={"white"}
                 bg={"#ed4a4e"}
@@ -165,15 +166,16 @@ export default function Navbar() {
                 Sign In
               </Button>
             )}
-
+<Link href={'/cart'}>
             <Image
-            cursor={'pointer'}
-            _hover={{p:'1px'}}
+              cursor={"pointer"}
+              _hover={{ p: "1px" }}
               width="20px"
               height={"20px"}
               src="https://cdn-icons-png.flaticon.com/512/736/736943.png"
               alt="bag"
             />
+            </Link>
           </Stack>
         </Flex>
       </Box>
@@ -190,7 +192,7 @@ export default function Navbar() {
 const NAV_ITEMS = [
   {
     label: "Categories",
-    href: "#",
+    href: "/homepage",
   },
   {
     label: "Brands",
@@ -241,7 +243,7 @@ const NAV_ITEMS = [
         subLabel3: "Primer",
         subLabel4: "Blush",
         subLabel5: "Bronzer",
-        href: "#",
+        href: "/makeup",
       },
       {
         head: "Skin",
@@ -320,12 +322,10 @@ const NAV_ITEMS = [
         subLabel1: "Headphones",
         subLabel2: "Speakers",
         subLabel3: "Power Banks",
-
         label1: "Kids",
         subLabel4: "Feeding",
         subLabel5: "Toys & Games",
         subLabel6: "Winterwear",
-
         href: "#",
       },
       {
@@ -334,7 +334,6 @@ const NAV_ITEMS = [
         subLabel1: "Decor",
         subLabel2: "Bath",
         subLabel3: "Storage",
-
         label1: "House Of Nikka",
         subLabel4: "Gajra Gang",
         subLabel5: "Pipa Bella",

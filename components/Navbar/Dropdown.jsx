@@ -51,6 +51,7 @@ export default function Dropdown() {
 const NAV_ITEMS = [
   {
     label: "Makeup",
+    href: "/makeup",
     children: [
       {
         label: "Face",
@@ -63,7 +64,7 @@ const NAV_ITEMS = [
         subLabel6: "Face Primer",
         subLabel7: "Face Primer",
 
-        href: "#",
+        href: "/#",
       },
       {
         label: "Eyes",

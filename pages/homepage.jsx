@@ -1,8 +1,15 @@
 import { Box, Flex, Grid, Image, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import Carousel from "./carousel";
 import styles from "./homepage.module.css";
 const top_brands = [
+  {
+    img: "https://images-static.nykaa.com/uploads/f78980bd-8cbe-4346-aece-c759cc904528.jpg?tr=w-400,cm-pad_resize",
+    dis: "Up To 30% Off + Pick Your Compact at ₹799",
+    desc: "Rich, Soft and Smooth matte lips all day long!",
+    add:'/lakme'
+  },
   {
     img: "https://images-static.nykaa.com/uploads/977c5e94-1721-482d-9087-51bae5366ee0.png?tr=w-400,cm-pad_resize",
     dis: "Up To 25% Off",
@@ -33,12 +40,7 @@ const top_brands = [
     desc: "Skin specialist face serums",
     add:'/loreal'
   },
-  {
-    img: "https://images-static.nykaa.com/uploads/f78980bd-8cbe-4346-aece-c759cc904528.jpg?tr=w-400,cm-pad_resize",
-    dis: "Up To 30% Off + Pick Your Compact at ₹799",
-    desc: "Rich, Soft and Smooth matte lips all day long!",
-    add:'/loreal'
-  },
+
   {
     img: "https://images-static.nykaa.com/uploads/dcd0793c-d987-4ad9-bdd9-8427f1efece7.jpg?tr=w-400,cm-pad_resize",
     dis: "Offers you can't resist",
@@ -49,7 +51,7 @@ const top_brands = [
     img: "https://images-static.nykaa.com/uploads/4450a9f1-a943-4968-91a1-f5b3e455f1ad.jpg?tr=w-400,cm-pad_resizee",
     dis: "50% Off on GloWish Franchise +",
     desc: "2 Complimentary Gifts on ₹2500",
-    add:'/loreal'
+    add:'/huda'
   },
   {
     img: "https://images-static.nykaa.com/uploads/46ba9dc1-b6da-4787-9c9e-b49cfae73289.jpg?tr=w-400,cm-pad_resize",
@@ -311,6 +313,8 @@ useEffect(() => {
 }, []);
   return (
     <>
+    <Carousel/>
+    <br/>
       <Flex width="95%" m={"auto"} justifyContent="space-between">
         <Image
           width="49%"
