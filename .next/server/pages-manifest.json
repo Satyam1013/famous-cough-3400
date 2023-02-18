@@ -2,16 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/api/hello": "pages/api/hello.js",
-  "/cart": "pages/cart.js",
-  "/homepage": "pages/homepage.js",
-  "/huda": "pages/huda.js",
   "/": "pages/index.js",
-  "/lakme": "pages/lakme.js",
-  "/loreal": "pages/loreal.js",
-  "/makeup": "pages/makeup.js",
-  "/nikka_special": "pages/nikka_special.js",
-  "/skin": "pages/skin.js",
-  "/haircare/[id]": "pages/haircare/[id].js",
-  "/haircare": "pages/haircare.js"
+  "/lakme": "pages/lakme.js"
 }

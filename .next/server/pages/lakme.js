@@ -1,444 +1,62 @@
 "use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 (() => {
 var exports = {};
-exports.id = 336;
-exports.ids = [336];
+exports.id = "pages/lakme";
+exports.ids = ["pages/lakme"];
 exports.modules = {
 
-/***/ 9106:
+/***/ "./pages/lakme.jsx":
+/*!*************************!*\
+  !*** ./pages/lakme.jsx ***!
+  \*************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _auth0_auth0_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6988);
-/* harmony import */ var _auth0_auth0_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_auth0_auth0_react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2210);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9648);
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(968);
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6689);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__, axios__WEBPACK_IMPORTED_MODULE_3__]);
-([_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__, axios__WEBPACK_IMPORTED_MODULE_3__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
-
-
-
-
-
-
-function Lakme() {
-    const [data, setData] = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)([]);
-    const [post, setPost] = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)([]);
-    const { isAuthenticated  } = (0,_auth0_auth0_react__WEBPACK_IMPORTED_MODULE_1__.useAuth0)();
-    const getData = async ()=>{
-        try {
-            let res = await axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("https://json-live-j5qk.onrender.com/lakme");
-            setPost(res.data);
-        } catch (err) {
-            console.log(err);
-        }
-    // console.log(res.data);
-    };
-    const sortLowByName = ()=>{
-        post.sort((a, b)=>{
-            return a.title < b.title ? 1 : a.title > b.title ? -1 : 0;
-        });
-        setPost([
-            ...post
-        ]);
-    };
-    //  p1.manufactured > p2.manufactured) ? 1 : (p1.manufactured < p2.manufactured) ? -1 : 0);
-    const sortHighByName = ()=>{
-        post.sort((a, b)=>{
-            return a.title > b.title ? 1 : a.title < b.title ? -1 : 0;
-        });
-        setPost([
-            ...post
-        ]);
-    };
-    const sortLowByRating = ()=>{
-        post.sort((a, b)=>{
-            return b.rating - a.rating;
-        });
-        setPost([
-            ...post
-        ]);
-    };
-    const sortHighByRating = ()=>{
-        post.sort((a, b)=>{
-            return a.rating - b.rating;
-        });
-        setPost([
-            ...post
-        ]);
-    };
-    const sortLowByPrice = ()=>{
-        post.sort((a, b)=>{
-            return b.disc_price - a.disc_price;
-        });
-        setPost([
-            ...post
-        ]);
-    };
-    const sortHighByPrice = ()=>{
-        post.sort((a, b)=>{
-            return a.disc_price - b.disc_price;
-        });
-        setPost([
-            ...post
-        ]);
-    };
-    const handleCart = (el)=>{
-        data.push(el);
-        {
-            isAuthenticated ? localStorage.setItem("cart", JSON.stringify(data)) : alert("Please Login First");
-        }
-    };
-    (0,react__WEBPACK_IMPORTED_MODULE_5__.useEffect)(()=>{
-        const value = localStorage.getItem("cart");
-        const user = !!value ? JSON.parse(value) : [];
-        setData(user);
-        getData();
-    }, []);
-    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Box, {
-        m: "auto",
-        mt: {
-            base: "1px",
-            lg: "-30px"
-        },
-        bgColor: "#f3f3f3",
-        children: [
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_head__WEBPACK_IMPORTED_MODULE_4___default()), {
-                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("title", {
-                    children: "Nikka Official / Lakme"
-                })
-            }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Heading, {
-                p: "30px",
-                mt: {
-                    base: "110px",
-                    lg: "30px"
-                },
-                fontSize: {
-                    base: "25px",
-                    md: "30px",
-                    lg: "40px"
-                },
-                color: "#ed4a4e",
-                fontWeight: "700",
-                textAlign: "center",
-                children: "Lakme Products"
-            }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Divider, {
-                border: "2px",
-                w: "80%",
-                m: "auto",
-                borderColor: "#ed4a4e"
-            }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("br", {}),
-            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Flex, {
-                flexDirection: {
-                    base: "column",
-                    md: "row"
-                },
-                width: "60%",
-                justifyContent: "center",
-                m: "auto",
-                lineHeight: "30px",
-                gap: {
-                    base: "20%",
-                    lg: "20%"
-                },
-                cursor: "pointer",
-                mb: {
-                    base: "20px",
-                    md: "10px"
-                },
-                children: [
-                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("details", {
-                        children: [
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("summary", {
-                                fontWeight: "600",
-                                color: "#ed4a4e",
-                                children: "Sort By Name"
-                            }),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Button, {
-                                h: {
-                                    base: "30px",
-                                    md: "35px",
-                                    lg: "40px"
-                                },
-                                color: {
-                                    base: "white",
-                                    lg: "black"
-                                },
-                                bgColor: {
-                                    base: "#ed4a4e",
-                                    md: "gray.100"
-                                },
-                                _hover: {
-                                    color: "white",
-                                    bg: "#ed4a4e"
-                                },
-                                onClick: sortHighByName,
-                                children: "Ascending"
-                            }),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Button, {
-                                h: {
-                                    base: "30px",
-                                    md: "35px",
-                                    lg: "40px"
-                                },
-                                color: {
-                                    base: "white",
-                                    lg: "black"
-                                },
-                                bgColor: {
-                                    base: "#ed4a4e",
-                                    md: "gray.100"
-                                },
-                                _hover: {
-                                    color: "white",
-                                    bg: "#ed4a4e"
-                                },
-                                onClick: sortLowByName,
-                                children: "Descending"
-                            })
-                        ]
-                    }),
-                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("details", {
-                        children: [
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("summary", {
-                                fontWeight: "600",
-                                color: "#ed4a4e",
-                                children: "Sort By Price"
-                            }),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Button, {
-                                h: {
-                                    base: "30px",
-                                    md: "35px",
-                                    lg: "40px"
-                                },
-                                color: {
-                                    base: "white",
-                                    lg: "black"
-                                },
-                                bgColor: {
-                                    base: "#ed4a4e",
-                                    md: "gray.100"
-                                },
-                                _hover: {
-                                    color: "white",
-                                    bg: "#ed4a4e"
-                                },
-                                onClick: sortHighByPrice,
-                                children: "Low To High"
-                            }),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Button, {
-                                h: {
-                                    base: "30px",
-                                    md: "35px",
-                                    lg: "40px"
-                                },
-                                color: {
-                                    base: "white",
-                                    lg: "black"
-                                },
-                                bgColor: {
-                                    base: "#ed4a4e",
-                                    md: "gray.100"
-                                },
-                                _hover: {
-                                    color: "white",
-                                    bg: "#ed4a4e"
-                                },
-                                onClick: sortLowByPrice,
-                                children: "High To Low"
-                            })
-                        ]
-                    }),
-                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("details", {
-                        children: [
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("summary", {
-                                fontWeight: "600",
-                                color: "#ed4a4e",
-                                children: "Sort By Ratings"
-                            }),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Button, {
-                                h: {
-                                    base: "30px",
-                                    md: "35px",
-                                    lg: "40px"
-                                },
-                                color: {
-                                    base: "white",
-                                    lg: "black"
-                                },
-                                bgColor: {
-                                    base: "#ed4a4e",
-                                    md: "gray.100"
-                                },
-                                _hover: {
-                                    color: "white",
-                                    bg: "#ed4a4e"
-                                },
-                                onClick: sortHighByRating,
-                                children: "Lowest Selling"
-                            }),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Button, {
-                                h: {
-                                    base: "30px",
-                                    md: "35px",
-                                    lg: "40px"
-                                },
-                                color: {
-                                    base: "white",
-                                    lg: "black"
-                                },
-                                bgColor: {
-                                    base: "#ed4a4e",
-                                    md: "gray.100"
-                                },
-                                _hover: {
-                                    color: "white",
-                                    bg: "#ed4a4e"
-                                },
-                                onClick: sortLowByRating,
-                                children: "Highest Selling"
-                            })
-                        ]
-                    })
-                ]
-            }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Grid, {
-                gridTemplateColumns: {
-                    base: "repeat(1,1fr)",
-                    md: "repeat(2,1fr)",
-                    lg: "repeat(3,1fr)"
-                },
-                gap: "20px",
-                w: "80%",
-                m: "auto",
-                children: post && post.map((el, i)=>/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Grid, {
-                        bgColor: "white",
-                        m: "auto",
-                        width: "300px",
-                        justifyContent: "center",
-                        _hover: {
-                            border: "2px solid pink"
-                        },
-                        children: [
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Image, {
-                                m: "auto",
-                                src: el.img,
-                                alt: ""
-                            }),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Text, {
-                                m: "auto",
-                                fontSize: "14px",
-                                w: "280px",
-                                mt: "10px",
-                                textAlign: "center",
-                                fontWeight: "600",
-                                children: el.title
-                            }),
-                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Flex, {
-                                m: "auto",
-                                gap: "5px",
-                                children: [
-                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Text, {
-                                        children: "MRP: "
-                                    }),
-                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Text, {
-                                        textDecoration: el.disc_price ? "line-through" : "none",
-                                        children: el.original_price
-                                    }),
-                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Text, {
-                                        fontWeight: "bold",
-                                        children: [
-                                            "  ₹ ",
-                                            el.disc_price
-                                        ]
-                                    }),
-                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Text, {
-                                        color: "green.400",
-                                        children: el.disc_rate
-                                    })
-                                ]
-                            }),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Text, {
-                                m: "auto",
-                                color: "#ed4a4e",
-                                children: "Get Free Product"
-                            }),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Text, {
-                                m: "auto",
-                                children: el.rating
-                            }),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Button, {
-                                w: "300px",
-                                mt: "20px",
-                                borderRadius: "0",
-                                color: "white",
-                                bgColor: "#ed4a4e",
-                                onClick: ()=>handleCart(el),
-                                zIndex: "1",
-                                children: "Add to Bag"
-                            })
-                        ]
-                    }, i))
-            })
-        ]
-    });
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().memo(Lakme));
-
-__webpack_async_result__();
-} catch(e) { __webpack_async_result__(e); } });
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Lakme),\n/* harmony export */   \"getStaticProps\": () => (/* binding */ getStaticProps)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react */ \"@chakra-ui/react\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ \"axios\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__, axios__WEBPACK_IMPORTED_MODULE_2__]);\n([_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__, axios__WEBPACK_IMPORTED_MODULE_2__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);\n\n\n\n\nasync function getStaticProps() {\n    const res = await axios__WEBPACK_IMPORTED_MODULE_2__[\"default\"].get(\"http://localhost:3001/lakme\");\n    const posts = res.data;\n    return {\n        props: {\n            posts\n        }\n    };\n}\nfunction Lakme({ posts  }) {\n    const handleCart = (el)=>{\n        localStorage.setItem(\"cart\", JSON.stringify({\n            ...el\n        }));\n    };\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Box, {\n        m: \"auto\",\n        bgColor: \"#f3f3f3\",\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Text, {\n                mt: \"30px\",\n                fontSize: \"30px\",\n                fontWeight: \"600\",\n                textAlign: \"center\",\n                children: \"All Products\"\n            }, void 0, false, {\n                fileName: \"D:\\\\PROJECTS\\\\Nykaa\\\\famous-cough-3400\\\\pages\\\\lakme.jsx\",\n                lineNumber: 23,\n                columnNumber: 7\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Grid, {\n                gridTemplateColumns: {\n                    base: \"repeat(1,1fr)\",\n                    md: \"repeat(2,1fr)\",\n                    lg: \"repeat(3,1fr)\"\n                },\n                gap: \"20px\",\n                w: \"80%\",\n                m: \"auto\",\n                children: posts.map((el)=>/*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Grid, {\n                        bgColor: \"white\",\n                        m: \"auto\",\n                        width: \"300px\",\n                        justifyContent: \"center\",\n                        children: [\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Image, {\n                                m: \"auto\",\n                                src: el.img,\n                                alt: \"\"\n                            }, void 0, false, {\n                                fileName: \"D:\\\\PROJECTS\\\\Nykaa\\\\famous-cough-3400\\\\pages\\\\lakme.jsx\",\n                                lineNumber: 44,\n                                columnNumber: 13\n                            }, this),\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Text, {\n                                m: \"auto\",\n                                fontSize: \"14px\",\n                                w: \"280px\",\n                                mt: \"10px\",\n                                textAlign: \"center\",\n                                fontWeight: \"600\",\n                                children: el.title\n                            }, void 0, false, {\n                                fileName: \"D:\\\\PROJECTS\\\\Nykaa\\\\famous-cough-3400\\\\pages\\\\lakme.jsx\",\n                                lineNumber: 45,\n                                columnNumber: 13\n                            }, this),\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Flex, {\n                                m: \"auto\",\n                                gap: \"5px\",\n                                children: [\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Text, {\n                                        children: \"MRP: \"\n                                    }, void 0, false, {\n                                        fileName: \"D:\\\\PROJECTS\\\\Nykaa\\\\famous-cough-3400\\\\pages\\\\lakme.jsx\",\n                                        lineNumber: 56,\n                                        columnNumber: 15\n                                    }, this),\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Text, {\n                                        textDecoration: el.disc_price ? \"line-through\" : \"none\",\n                                        children: el.original_price\n                                    }, void 0, false, {\n                                        fileName: \"D:\\\\PROJECTS\\\\Nykaa\\\\famous-cough-3400\\\\pages\\\\lakme.jsx\",\n                                        lineNumber: 57,\n                                        columnNumber: 15\n                                    }, this),\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Text, {\n                                        fontWeight: \"bold\",\n                                        children: el.disc_price\n                                    }, void 0, false, {\n                                        fileName: \"D:\\\\PROJECTS\\\\Nykaa\\\\famous-cough-3400\\\\pages\\\\lakme.jsx\",\n                                        lineNumber: 60,\n                                        columnNumber: 15\n                                    }, this),\n                                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Text, {\n                                        color: \"green.400\",\n                                        children: el.disc_rate\n                                    }, void 0, false, {\n                                        fileName: \"D:\\\\PROJECTS\\\\Nykaa\\\\famous-cough-3400\\\\pages\\\\lakme.jsx\",\n                                        lineNumber: 61,\n                                        columnNumber: 15\n                                    }, this)\n                                ]\n                            }, void 0, true, {\n                                fileName: \"D:\\\\PROJECTS\\\\Nykaa\\\\famous-cough-3400\\\\pages\\\\lakme.jsx\",\n                                lineNumber: 55,\n                                columnNumber: 13\n                            }, this),\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Text, {\n                                m: \"auto\",\n                                color: \"#ed4a4e\",\n                                children: \"Get Free Product\"\n                            }, void 0, false, {\n                                fileName: \"D:\\\\PROJECTS\\\\Nykaa\\\\famous-cough-3400\\\\pages\\\\lakme.jsx\",\n                                lineNumber: 63,\n                                columnNumber: 13\n                            }, this),\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Text, {\n                                m: \"auto\",\n                                children: el.rating\n                            }, void 0, false, {\n                                fileName: \"D:\\\\PROJECTS\\\\Nykaa\\\\famous-cough-3400\\\\pages\\\\lakme.jsx\",\n                                lineNumber: 66,\n                                columnNumber: 13\n                            }, this),\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Button, {\n                                w: \"300px\",\n                                mt: \"20px\",\n                                borderRadius: \"0\",\n                                color: \"white\",\n                                bgColor: \"#ed4a4e\",\n                                onClick: ()=>handleCart(el),\n                                children: \"Add to Bag\"\n                            }, void 0, false, {\n                                fileName: \"D:\\\\PROJECTS\\\\Nykaa\\\\famous-cough-3400\\\\pages\\\\lakme.jsx\",\n                                lineNumber: 67,\n                                columnNumber: 13\n                            }, this)\n                        ]\n                    }, el.type, true, {\n                        fileName: \"D:\\\\PROJECTS\\\\Nykaa\\\\famous-cough-3400\\\\pages\\\\lakme.jsx\",\n                        lineNumber: 37,\n                        columnNumber: 11\n                    }, this))\n            }, void 0, false, {\n                fileName: \"D:\\\\PROJECTS\\\\Nykaa\\\\famous-cough-3400\\\\pages\\\\lakme.jsx\",\n                lineNumber: 26,\n                columnNumber: 7\n            }, this)\n        ]\n    }, void 0, true, {\n        fileName: \"D:\\\\PROJECTS\\\\Nykaa\\\\famous-cough-3400\\\\pages\\\\lakme.jsx\",\n        lineNumber: 21,\n        columnNumber: 5\n    }, this);\n}\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } });//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9sYWttZS5qc3guanMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7QUFBQTtBQUF3RTtBQUM5QztBQUNBO0FBRW5CLGVBQWVRLGlCQUFpQjtJQUNyQyxNQUFNQyxNQUFNLE1BQU1ILGlEQUFTLENBQUM7SUFDNUIsTUFBTUssUUFBUUYsSUFBSUcsSUFBSTtJQUV0QixPQUFPO1FBQ0xDLE9BQU87WUFDTEY7UUFDRjtJQUNGO0FBQ0YsQ0FBQztBQUNjLFNBQVNHLE1BQU0sRUFBRUgsTUFBSyxFQUFFLEVBQUU7SUFDdkMsTUFBTUksYUFBYSxDQUFDQyxLQUFPO1FBQ3pCQyxhQUFhQyxPQUFPLENBQUMsUUFBUUMsS0FBS0MsU0FBUyxDQUFDO1lBQUUsR0FBR0osRUFBRTtRQUFDO0lBQ3REO0lBRUEscUJBQ0UsOERBQUNoQixpREFBR0E7UUFBQ3FCLEdBQUU7UUFBT0MsU0FBUzs7MEJBRXJCLDhEQUFDakIsa0RBQUlBO2dCQUFDa0IsSUFBRztnQkFBT0MsVUFBVTtnQkFBUUMsWUFBVztnQkFBTUMsV0FBVzswQkFBVTs7Ozs7OzBCQUd4RSw4REFBQ3ZCLGtEQUFJQTtnQkFDSHdCLHFCQUFxQjtvQkFDbkJDLE1BQU07b0JBQ05DLElBQUk7b0JBQ0pDLElBQUk7Z0JBQ047Z0JBQ0FDLEtBQUk7Z0JBQ0pDLEdBQUU7Z0JBQ0ZYLEdBQUc7MEJBRUZWLE1BQU1zQixHQUFHLENBQUMsQ0FBQ2pCLG1CQUNWLDhEQUFDYixrREFBSUE7d0JBRUhtQixTQUFTO3dCQUNURCxHQUFFO3dCQUNGYSxPQUFNO3dCQUNOQyxnQkFBZ0I7OzBDQUVoQiw4REFBQy9CLG1EQUFLQTtnQ0FBQ2lCLEdBQUU7Z0NBQU9lLEtBQUtwQixHQUFHcUIsR0FBRztnQ0FBRUMsS0FBSTs7Ozs7OzBDQUNqQyw4REFBQ2pDLGtEQUFJQTtnQ0FDSGdCLEdBQUU7Z0NBQ0ZHLFVBQVU7Z0NBQ1ZRLEdBQUU7Z0NBQ0ZULElBQUc7Z0NBQ0hHLFdBQVc7Z0NBQ1hELFlBQVc7MENBRVZULEdBQUd1QixLQUFLOzs7Ozs7MENBRVgsOERBQUNyQyxrREFBSUE7Z0NBQUNtQixHQUFFO2dDQUFPVSxLQUFJOztrREFDakIsOERBQUMxQixrREFBSUE7a0RBQUM7Ozs7OztrREFDTiw4REFBQ0Esa0RBQUlBO3dDQUFDbUMsZ0JBQWdCeEIsR0FBR3lCLFVBQVUsR0FBRyxpQkFBaUIsTUFBTTtrREFDMUR6QixHQUFHMEIsY0FBYzs7Ozs7O2tEQUVwQiw4REFBQ3JDLGtEQUFJQTt3Q0FBQ29CLFlBQVc7a0RBQVFULEdBQUd5QixVQUFVOzs7Ozs7a0RBQ3RDLDhEQUFDcEMsa0RBQUlBO3dDQUFDc0MsT0FBTTtrREFBYTNCLEdBQUc0QixTQUFTOzs7Ozs7Ozs7Ozs7MENBRXZDLDhEQUFDdkMsa0RBQUlBO2dDQUFDZ0IsR0FBRTtnQ0FBT3NCLE9BQU87MENBQVc7Ozs7OzswQ0FHakMsOERBQUN0QyxrREFBSUE7Z0NBQUNnQixHQUFFOzBDQUFRTCxHQUFHNkIsTUFBTTs7Ozs7OzBDQUN6Qiw4REFBQzVDLG9EQUFNQTtnQ0FDTCtCLEdBQUU7Z0NBQ0ZULElBQUc7Z0NBQ0h1QixjQUFjO2dDQUNkSCxPQUFNO2dDQUNOckIsU0FBUTtnQ0FDUnlCLFNBQVMsSUFBTWhDLFdBQVdDOzBDQUMzQjs7Ozs7Ozt1QkFwQ0lBLEdBQUdnQyxJQUFJOzs7Ozs7Ozs7Ozs7Ozs7O0FBNEN4QixDQUFDIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vZmFtb3VzLWNvdWdoLTM0MDAvLi9wYWdlcy9sYWttZS5qc3g/ZDY4NiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBCb3gsIEJ1dHRvbiwgRmxleCwgR3JpZCwgSW1hZ2UsIFRleHQgfSBmcm9tIFwiQGNoYWtyYS11aS9yZWFjdFwiO1xyXG5pbXBvcnQgYXhpb3MgZnJvbSBcImF4aW9zXCI7XHJcbmltcG9ydCBSZWFjdCBmcm9tIFwicmVhY3RcIjtcclxuXHJcbmV4cG9ydCBhc3luYyBmdW5jdGlvbiBnZXRTdGF0aWNQcm9wcygpIHtcclxuICBjb25zdCByZXMgPSBhd2FpdCBheGlvcy5nZXQoXCJodHRwOi8vbG9jYWxob3N0OjMwMDEvbGFrbWVcIik7XHJcbiAgY29uc3QgcG9zdHMgPSByZXMuZGF0YTtcclxuXHJcbiAgcmV0dXJuIHtcclxuICAgIHByb3BzOiB7XHJcbiAgICAgIHBvc3RzLFxyXG4gICAgfSxcclxuICB9O1xyXG59XHJcbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIExha21lKHsgcG9zdHMgfSkge1xyXG4gIGNvbnN0IGhhbmRsZUNhcnQgPSAoZWwpID0+IHtcclxuICAgIGxvY2FsU3RvcmFnZS5zZXRJdGVtKFwiY2FydFwiLCBKU09OLnN0cmluZ2lmeSh7IC4uLmVsIH0pKTtcclxuICB9O1xyXG5cclxuICByZXR1cm4gKFxyXG4gICAgPEJveCBtPVwiYXV0b1wiIGJnQ29sb3I9e1wiI2YzZjNmM1wifT5cclxuICAgICAgey8qIDxjYXJ0IGhhbmRsZUNhcnQ9e2hhbmRsZUNhcnR9Lz4gKi99XHJcbiAgICAgIDxUZXh0IG10PVwiMzBweFwiIGZvbnRTaXplPXtcIjMwcHhcIn0gZm9udFdlaWdodD1cIjYwMFwiIHRleHRBbGlnbj17XCJjZW50ZXJcIn0+XHJcbiAgICAgICAgQWxsIFByb2R1Y3RzXHJcbiAgICAgIDwvVGV4dD5cclxuICAgICAgPEdyaWRcclxuICAgICAgICBncmlkVGVtcGxhdGVDb2x1bW5zPXt7XHJcbiAgICAgICAgICBiYXNlOiBcInJlcGVhdCgxLDFmcilcIixcclxuICAgICAgICAgIG1kOiBcInJlcGVhdCgyLDFmcilcIixcclxuICAgICAgICAgIGxnOiBcInJlcGVhdCgzLDFmcilcIixcclxuICAgICAgICB9fVxyXG4gICAgICAgIGdhcD1cIjIwcHhcIlxyXG4gICAgICAgIHc9XCI4MCVcIlxyXG4gICAgICAgIG09e1wiYXV0b1wifVxyXG4gICAgICA+XHJcbiAgICAgICAge3Bvc3RzLm1hcCgoZWwpID0+IChcclxuICAgICAgICAgIDxHcmlkXHJcbiAgICAgICAgICAgIGtleT17ZWwudHlwZX1cclxuICAgICAgICAgICAgYmdDb2xvcj17XCJ3aGl0ZVwifVxyXG4gICAgICAgICAgICBtPVwiYXV0b1wiXHJcbiAgICAgICAgICAgIHdpZHRoPVwiMzAwcHhcIlxyXG4gICAgICAgICAgICBqdXN0aWZ5Q29udGVudD17XCJjZW50ZXJcIn1cclxuICAgICAgICAgID5cclxuICAgICAgICAgICAgPEltYWdlIG09XCJhdXRvXCIgc3JjPXtlbC5pbWd9IGFsdD1cIlwiIC8+XHJcbiAgICAgICAgICAgIDxUZXh0XHJcbiAgICAgICAgICAgICAgbT1cImF1dG9cIlxyXG4gICAgICAgICAgICAgIGZvbnRTaXplPXtcIjE0cHhcIn1cclxuICAgICAgICAgICAgICB3PVwiMjgwcHhcIlxyXG4gICAgICAgICAgICAgIG10PVwiMTBweFwiXHJcbiAgICAgICAgICAgICAgdGV4dEFsaWduPXtcImNlbnRlclwifVxyXG4gICAgICAgICAgICAgIGZvbnRXZWlnaHQ9XCI2MDBcIlxyXG4gICAgICAgICAgICA+XHJcbiAgICAgICAgICAgICAge2VsLnRpdGxlfVxyXG4gICAgICAgICAgICA8L1RleHQ+XHJcbiAgICAgICAgICAgIDxGbGV4IG09XCJhdXRvXCIgZ2FwPVwiNXB4XCI+XHJcbiAgICAgICAgICAgICAgPFRleHQ+TVJQOiA8L1RleHQ+XHJcbiAgICAgICAgICAgICAgPFRleHQgdGV4dERlY29yYXRpb249e2VsLmRpc2NfcHJpY2UgPyBcImxpbmUtdGhyb3VnaFwiIDogXCJub25lXCJ9PlxyXG4gICAgICAgICAgICAgICAge2VsLm9yaWdpbmFsX3ByaWNlfVxyXG4gICAgICAgICAgICAgIDwvVGV4dD5cclxuICAgICAgICAgICAgICA8VGV4dCBmb250V2VpZ2h0PVwiYm9sZFwiPntlbC5kaXNjX3ByaWNlfTwvVGV4dD5cclxuICAgICAgICAgICAgICA8VGV4dCBjb2xvcj1cImdyZWVuLjQwMFwiPntlbC5kaXNjX3JhdGV9PC9UZXh0PlxyXG4gICAgICAgICAgICA8L0ZsZXg+XHJcbiAgICAgICAgICAgIDxUZXh0IG09XCJhdXRvXCIgY29sb3I9e1wiI2VkNGE0ZVwifT5cclxuICAgICAgICAgICAgICBHZXQgRnJlZSBQcm9kdWN0XHJcbiAgICAgICAgICAgIDwvVGV4dD5cclxuICAgICAgICAgICAgPFRleHQgbT1cImF1dG9cIj57ZWwucmF0aW5nfTwvVGV4dD5cclxuICAgICAgICAgICAgPEJ1dHRvblxyXG4gICAgICAgICAgICAgIHc9XCIzMDBweFwiXHJcbiAgICAgICAgICAgICAgbXQ9XCIyMHB4XCJcclxuICAgICAgICAgICAgICBib3JkZXJSYWRpdXM9e1wiMFwifVxyXG4gICAgICAgICAgICAgIGNvbG9yPVwid2hpdGVcIlxyXG4gICAgICAgICAgICAgIGJnQ29sb3I9XCIjZWQ0YTRlXCJcclxuICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBoYW5kbGVDYXJ0KGVsKX1cclxuICAgICAgICAgICAgPlxyXG4gICAgICAgICAgICAgIEFkZCB0byBCYWdcclxuICAgICAgICAgICAgPC9CdXR0b24+XHJcbiAgICAgICAgICA8L0dyaWQ+XHJcbiAgICAgICAgKSl9XHJcbiAgICAgIDwvR3JpZD5cclxuICAgIDwvQm94PlxyXG4gICk7XHJcbn1cclxuIl0sIm5hbWVzIjpbIkJveCIsIkJ1dHRvbiIsIkZsZXgiLCJHcmlkIiwiSW1hZ2UiLCJUZXh0IiwiYXhpb3MiLCJSZWFjdCIsImdldFN0YXRpY1Byb3BzIiwicmVzIiwiZ2V0IiwicG9zdHMiLCJkYXRhIiwicHJvcHMiLCJMYWttZSIsImhhbmRsZUNhcnQiLCJlbCIsImxvY2FsU3RvcmFnZSIsInNldEl0ZW0iLCJKU09OIiwic3RyaW5naWZ5IiwibSIsImJnQ29sb3IiLCJtdCIsImZvbnRTaXplIiwiZm9udFdlaWdodCIsInRleHRBbGlnbiIsImdyaWRUZW1wbGF0ZUNvbHVtbnMiLCJiYXNlIiwibWQiLCJsZyIsImdhcCIsInciLCJtYXAiLCJ3aWR0aCIsImp1c3RpZnlDb250ZW50Iiwic3JjIiwiaW1nIiwiYWx0IiwidGl0bGUiLCJ0ZXh0RGVjb3JhdGlvbiIsImRpc2NfcHJpY2UiLCJvcmlnaW5hbF9wcmljZSIsImNvbG9yIiwiZGlzY19yYXRlIiwicmF0aW5nIiwiYm9yZGVyUmFkaXVzIiwib25DbGljayIsInR5cGUiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./pages/lakme.jsx\n");
 
 /***/ }),
 
-/***/ 6988:
-/***/ ((module) => {
-
-module.exports = require("@auth0/auth0-react");
-
-/***/ }),
-
-/***/ 968:
-/***/ ((module) => {
-
-module.exports = require("next/head");
-
-/***/ }),
-
-/***/ 6689:
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
 /***/ ((module) => {
 
 module.exports = require("react");
 
 /***/ }),
 
-/***/ 997:
+/***/ "react/jsx-dev-runtime":
+/*!****************************************!*\
+  !*** external "react/jsx-dev-runtime" ***!
+  \****************************************/
 /***/ ((module) => {
 
-module.exports = require("react/jsx-runtime");
+module.exports = require("react/jsx-dev-runtime");
 
 /***/ }),
 
-/***/ 2210:
+/***/ "@chakra-ui/react":
+/*!***********************************!*\
+  !*** external "@chakra-ui/react" ***!
+  \***********************************/
 /***/ ((module) => {
 
 module.exports = import("@chakra-ui/react");;
 
 /***/ }),
 
-/***/ 9648:
+/***/ "axios":
+/*!************************!*\
+  !*** external "axios" ***!
+  \************************/
 /***/ ((module) => {
 
 module.exports = import("axios");;
@@ -452,7 +70,7 @@ module.exports = import("axios");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__(9106));
+var __webpack_exports__ = (__webpack_exec__("./pages/lakme.jsx"));
 module.exports = __webpack_exports__;
 
 })();
